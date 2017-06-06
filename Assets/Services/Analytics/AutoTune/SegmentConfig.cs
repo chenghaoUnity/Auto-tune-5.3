@@ -8,11 +8,11 @@ namespace Unity.AutoTune {
 	public class SegmentConfig 
 	{
 		public string segment_id;
-		public long group_id;
+		public int group_id;
 		public Dictionary<string, object> settings;
         public string config_hash;
 
-		public SegmentConfig(string segment_id, long group_id, Dictionary<string, object> settings, string config_hash)
+		public SegmentConfig(string segment_id, int group_id, Dictionary<string, object> settings, string config_hash)
 		{
 			this.segment_id = segment_id;
 			this.group_id = group_id;
@@ -34,7 +34,7 @@ namespace Unity.AutoTune {
 			var dict = Json.Deserialize(json) as Dictionary<string,object>;
 			return new SegmentConfig(
 				(string) dict["segment_id"],
-				(long) dict["group_id"],
+				(int)(long) dict["group_id"],
 				dict["settings"] as Dictionary<string,object>,
 				(string) dict["config_hash"]
 				);

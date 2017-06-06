@@ -79,20 +79,23 @@
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity 5.3/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.Graphs">
- <HintPath>/Applications/Unity 5.3/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
+ <Reference Include="Firebase.Editor">
+ <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Editor/Firebase.Editor.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.WindowsStandalone.Extensions">
- <HintPath>/Applications/Unity 5.3/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ <Reference Include="Firebase.App">
+ <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.OSXStandalone.Extensions">
- <HintPath>/Applications/Unity 5.3/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="Google.MiniJson">
- <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+ <Reference Include="Firebase.Auth">
+ <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Database">
  <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.Database.Unity">
+ <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Firebase.Database.Unity.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.MiniJson">
+ <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
  </Reference>
  <Reference Include="Google.Sharpen">
  <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
@@ -100,20 +103,8 @@
  <Reference Include="Unity.Compat">
  <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Unity.Compat.dll</HintPath>
  </Reference>
- <Reference Include="Firebase.Database.Unity">
- <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Firebase.Database.Unity.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Tasks">
  <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Unity.Tasks.dll</HintPath>
- </Reference>
- <Reference Include="Firebase.Editor">
- <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Editor/Firebase.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Firebase.Auth">
- <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
- </Reference>
- <Reference Include="Firebase.App">
- <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
  </Reference>
  <Reference Include="Google.IOSResolver">
  <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/PlayServicesResolver/Editor/Google.IOSResolver.dll</HintPath>
@@ -123,6 +114,15 @@
  </Reference>
  <Reference Include="Google.VersionHandler">
  <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>/Applications/Unity 5.3/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+ <HintPath>/Applications/Unity 5.3/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.OSXStandalone.Extensions">
+ <HintPath>/Applications/Unity 5.3/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

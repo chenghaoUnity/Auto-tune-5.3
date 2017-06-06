@@ -6,17 +6,14 @@
 -r:'/Applications/Unity 5.3/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll'
 -r:'/Applications/Unity 5.3/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll'
 -r:'/Applications/Unity 5.3/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll'
--r:'/Applications/Unity 5.3/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll'
--r:'/Applications/Unity 5.3/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll'
--r:'/Applications/Unity 5.3/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll'
--r:'Assets/Firebase/Plugins/Google.MiniJson.dll'
+-r:'Assets/Firebase/Plugins/Firebase.App.dll'
+-r:'Assets/Firebase/Plugins/Firebase.Auth.dll'
 -r:'Assets/Firebase/Plugins/Firebase.Database.dll'
+-r:'Assets/Firebase/Plugins/Firebase.Database.Unity.dll'
+-r:'Assets/Firebase/Plugins/Google.MiniJson.dll'
 -r:'Assets/Firebase/Plugins/Google.Sharpen.dll'
 -r:'Assets/Firebase/Plugins/Unity.Compat.dll'
--r:'Assets/Firebase/Plugins/Firebase.Database.Unity.dll'
 -r:'Assets/Firebase/Plugins/Unity.Tasks.dll'
--r:'Assets/Firebase/Plugins/Firebase.Auth.dll'
--r:'Assets/Firebase/Plugins/Firebase.App.dll'
 -r:'/Applications/Unity 5.3/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
 -define:UNITY_5_3_OR_NEWER
 -define:UNITY_5_3_7
@@ -92,8 +89,9 @@
 -define:UNITY_EDITOR_OSX
 -define:UNITY_TEAM_LICENSE
 -define:UNITY_PRO_LICENSE
-'Assets/ManyParticles.cs'
-'Assets/Rotate.cs'
+'Assets/Script/FirebaseConnection.cs'
+'Assets/Script/ManyParticles.cs'
+'Assets/Script/Rotate.cs'
 'Assets/Services/Analytics/AutoTune/AutoTune.cs'
 'Assets/Services/Analytics/AutoTune/AutoTuneMeta.cs'
 'Assets/Services/Analytics/AutoTune/MiniJSON.cs'
@@ -106,5 +104,5 @@
 'Assets/Services/Analytics/Performance/PerfRecorder.cs'
 'Assets/Services/Analytics/Performance/Result.cs'
 'Assets/Services/Analytics/Performance/ValueBin.cs'
--r:'/Applications/Unity 5.3/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
--r:'/Applications/Unity 5.3/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'
+-r:'/Applications/Unity 5.3/Unity.app/Contents/Frameworks/Mono/lib/mono/2.0/System.Runtime.Serialization.dll'
+-r:'/Applications/Unity 5.3/Unity.app/Contents/Frameworks/Mono/lib/mono/2.0/System.Xml.Linq.dll'

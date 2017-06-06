@@ -74,11 +74,20 @@
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity 5.3/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
- <Reference Include="Google.MiniJson">
- <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+ <Reference Include="Firebase.App">
+ <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.Auth">
+ <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Database">
  <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
+ </Reference>
+ <Reference Include="Firebase.Database.Unity">
+ <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Firebase.Database.Unity.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.MiniJson">
+ <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
  </Reference>
  <Reference Include="Google.Sharpen">
  <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
@@ -86,17 +95,8 @@
  <Reference Include="Unity.Compat">
  <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Unity.Compat.dll</HintPath>
  </Reference>
- <Reference Include="Firebase.Database.Unity">
- <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Firebase.Database.Unity.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Tasks">
  <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Unity.Tasks.dll</HintPath>
- </Reference>
- <Reference Include="Firebase.Auth">
- <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
- </Reference>
- <Reference Include="Firebase.App">
- <HintPath>/Users/Shared/Unity/Auto-tune 5.3/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

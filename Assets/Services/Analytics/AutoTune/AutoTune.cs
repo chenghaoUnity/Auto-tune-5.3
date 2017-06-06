@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// using UnityEngine.Networking;
+using UnityEngine.Networking;
 using UnityEngine.Analytics;
 using Unity.Performance;
 using Unity.AutoTune.MiniJSON;
@@ -12,9 +12,9 @@ using System;
 namespace Unity.AutoTune {
 
 public class AutoTune : MonoBehaviour {
-	private static string AutoTuneEndpoint = "https://prd-auto-tune.uca.cloud.unity3d.com/";
+	private static string AutoTuneEndpoint = "https://test-auto-tune.uca.cloud.unity3d.com/";
 	private static string CLIENT_DEFAULT_SEGMENT = "-1";
-	private static long CLIENT_DEFAULT_GROUP = -1;
+	private static int CLIENT_DEFAULT_GROUP = -1;
 	private static string AutoTuneDir = "/unity.autotune";
 	private static string SegmentConfigCacheFilePath = AutoTuneDir + "/segmentconfig.json";
 
@@ -38,12 +38,14 @@ public class AutoTune : MonoBehaviour {
 		public int gfx_shader;
 		public string gfx_ver;
 		public int max_texture_size;
+		public string app_build_version;
 
-		public DeviceInfo(string sheetId) {
+		public DeviceInfo(string sheetId, string app_build_version) {
 			this.sheet_id = sheetId;
+			this.app_build_version = app_build_version;
 			this.model = SystemInfo.deviceModel;
 			this.device_id = SystemInfo.deviceUniqueIdentifier;
-			this.ram = SystemInfo.systemMemorySize * 1024;
+			this.ram = SystemInfo.systemMemorySize;
 			this.cpu = SystemInfo.processorType;
 			this.cpu_count = SystemInfo.processorCount;
 			this.gfx_name = SystemInfo.graphicsDeviceName;
@@ -84,7 +86,7 @@ public class AutoTune : MonoBehaviour {
 		if (!GetInstance().Equals(this)) Destroy(gameObject);
 	}
 	
-	public delegate void AutoTuneCallback(Dictionary<string, object> settings, long group);
+	public delegate void AutoTuneCallback(Dictionary<string, object> settings, int group);
 	private string _sheetId;
 	private string _buildVersion;
 	private SegmentConfig _clientDefaultConfig;
@@ -173,7 +175,7 @@ public class AutoTune : MonoBehaviour {
                                 
 				// should not happen but do not want to write null checks in code below this
 				if(deviceInfo == null) {
-					deviceInfo = new DeviceInfo(_sheetId);
+					deviceInfo = new DeviceInfo(_sheetId, _buildVersion);
 				}
 
 				// device information data should reuse the same naming convention as DeviceInfo event
@@ -204,8 +206,7 @@ public class AutoTune : MonoBehaviour {
 					Debug.Log("autotune.SegmentRequestInfo event status: " + status);
 					FirebaseConnection.GetInstance().PushEventStatus(status);
 
-					Dictionary<string, object> dic = new Dictionary<string, object>
-					{
+					var dic = new Dictionary<string,object>() {
 						{"segment_id", segmentConfig.segment_id},
 						{"group_id", segmentConfig.group_id},
 						{"error", _isError},
@@ -229,8 +230,7 @@ public class AutoTune : MonoBehaviour {
 						{"sheet_id", deviceInfo.sheet_id}
 					};
 
-					FirebaseConnection.GetInstance().PushAutotuneDic(dic);
-
+					FirebaseConnection.GetInstance ().PushAutotuneDic (dic);
 			}
 			catch (System.Exception e)
 			{
@@ -249,7 +249,7 @@ public class AutoTune : MonoBehaviour {
 		using (var client = new WebClient()) {
 			client.UploadDataCompleted += (new UploadDataCompletedEventHandler(wc_UploadDataCompleted));
 			client.Headers.Add("Content-Type","application/json");
-			DeviceInfo di = new DeviceInfo(_sheetId);
+			DeviceInfo di = new DeviceInfo(_sheetId, _buildVersion);
 			string payload = JsonUtility.ToJson(di);
 			_deviceInfo = di;
 			byte[] bytes = System.Text.Encoding.UTF8.GetBytes(payload);
@@ -274,11 +274,17 @@ public class AutoTune : MonoBehaviour {
 		var res = new Dictionary<string,object>();
 		var pars = response["params"] as List<object>;
 		var segmentId = (string)response["segment_id"];
-		var groupId = (long)response["group"];
+		int groupId = (int)(long)response["group"];
 		foreach (var param in pars)
 		{
 			var dict = param as Dictionary<string,object>;
-			res[(string)dict["name"]] = dict["value"];
+			if (dict["value"] is long) {
+				res[(string)dict["name"]] = (int)(long)dict["value"];
+			} else if (dict["value"] is double) {
+				res[(string)dict["name"]] = (float)(double)dict["value"];
+			} else {
+				res[(string)dict["name"]] = dict["value"];
+			}
 		}
 		
 		// TODO: add server provided hash
@@ -315,7 +321,6 @@ public class AutoTune : MonoBehaviour {
 				var jsonStr = System.Text.Encoding.UTF8.GetString(e.Result);
 				var resp = Json.Deserialize(jsonStr) as Dictionary<string,object>;
 				Debug.LogFormat ("autotune response payload: {0}", jsonStr);
-
 				var newSegmentConfig = ParseResponse(resp);
 
 				lock(this)
@@ -323,13 +328,12 @@ public class AutoTune : MonoBehaviour {
 					// configuration changed, save it to file
 					if(_cachedSegmentConfig.config_hash != newSegmentConfig.config_hash) {
 						CacheSegmentConfig(newSegmentConfig);
-
 					}
 					else {
 						// TODO - remove once server provided hash is in place
 						CacheSegmentConfig(newSegmentConfig);
 					}
-							
+
 					_cachedSegmentConfig = newSegmentConfig;
 					_updateNeeded = true;
 				}

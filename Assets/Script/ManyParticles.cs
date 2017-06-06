@@ -25,31 +25,16 @@ public class ManyParticles : MonoBehaviour {
 			{"totalObjects", 10}
 		};
 		_startTime = Time.time;
-		AutoTune.Init("1OffXev7qC2FOX1Zbp1dwAcXei67rtwOc3X9Bop2g8y8", "1", true, defaults);
+		AutoTune.Init("1OffXev7qC2FOX1Zbp1dwAcXei67rtwOc3X9Bop2g8y8", "1", true,defaults);
 		AutoTune.Fetch(GotSettings);
 	}
 
-	void GotSettings(Dictionary<string,object> settings, long group)
+	void GotSettings(Dictionary<string,object> settings, int group)
 	{
 		// apply settings to your game, eg:
 		// SettingsManager.maxParticles = settings['max_particles']
 		Debug.Log("got new settings");
 		FirebaseConnection.GetInstance ().PushGetSettings ();
-		long numObjects = (long)settings ["totalObjects"];
-
-		Debug.LogFormat ("will create {0} cubes", numObjects);
-		FirebaseConnection.GetInstance ().PushTotalObjects (numObjects);
-
-		while (numObjects-- > 0)
-		{
-			var cube = GameObject.CreatePrimitive (PrimitiveType.Cube);
-			cube.AddComponent<Rotate> ();
-			float x = Random.Range (-radius, radius);
-			float y = Random.Range (-radius, radius);
-			float z = Random.Range (-radius, radius);
-			cube.transform.position = new Vector3 (x, y, z);
-			cube.transform.parent = center.transform;
-		}
 	}
 	
 	// Update is called once per frame
