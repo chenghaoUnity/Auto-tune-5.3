@@ -1,10 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/ManyParticles.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Services/Analytics/AutoTune/AutoTune.cs">
     <Files>
-      <File FileName="Assets/Script/FirebaseConnection.cs" Line="49" Column="29" />
-      <File FileName="Assets/Services/Analytics/AutoTune/AutoTune.cs" Line="213" Column="1" />
-      <File FileName="Assets/Script/ManyParticles.cs" Line="38" Column="23" />
+      <File FileName="Assets/Script/ManyParticles.cs" Line="37" Column="56" />
+      <File FileName="Assets/Script/FirebaseConnection.cs" Line="1" Column="1" />
+      <File FileName="Assets/Services/Analytics/AutoTune/AutoTune.cs" Line="206" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

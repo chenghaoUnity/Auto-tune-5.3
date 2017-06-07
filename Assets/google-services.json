@@ -1,0 +1,45 @@
+{
+  "project_info": {
+    "project_number": "472060382346",
+    "firebase_url": "https://devivetiering.firebaseio.com",
+    "project_id": "devivetiering",
+    "storage_bucket": "devivetiering.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472060382346:android:c41c0fc5e35fd9c6",
+        "android_client_info": {
+          "package_name": "com.unity3d.autoTune"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472060382346-54079p45kljral52h4p9he8eihasbcfu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClRjon9eR9KMfwG7mFScsB5T6tKtAYDnY"
+        },
+        {
+          "current_key": "AIzaSyACC8KIlobM4s-K0K_Iz50MRLif2DqDvq8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
